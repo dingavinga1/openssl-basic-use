@@ -104,4 +104,14 @@ Here is an example of a basic TLS client/server communication using OpenSSL:
 ![image](https://user-images.githubusercontent.com/88616338/223783901-cfca4cb3-5efd-445e-ae25-1aac240495f5.png)
 ****
 ### Mail Encryption/Decryption using S/MIME
+Generating a key and certificate for the recipient:<br/>
+```openssl req -newkey rsa:2048 -nodes -keyout KEY.pem -x509 -days 365 -out CERTIFICATE.pem```<br/><br/>
+Encrypting the mail with the recipient's public key:<br/>
+```openssl smime -encrypt -aes256 -in plaintext.txt -out ciphertext.enc -outform DER CERTIFICATE.pem```<br/><br/>
+Decrypting the mail with the recipient's private key:<br/>
+```openssl smime -decrypt -in ciphertext.enc -inform DER -out plaintext2.txt -inkey KEY.pem```<br/><br/>
+Here is an example output of what "THIS IS A VERY IMPORTANT MAIL" looks like when it is encrypted:<br/>
+![image](https://user-images.githubusercontent.com/88616338/223788877-71cab07b-6672-4cec-8087-9d8f29383403.png)
 
+## Conclusion
+After exploring just about 30% of the use cases of OpenSSL, we can see how comprehensive and powerful the tool is for cryptography tests and network security. All large organizations use OpenSSL for the testing and their security protocols and you should too. OpenSSL is a lifesaver and automates countless procedures that you would follow manually.
