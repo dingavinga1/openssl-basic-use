@@ -95,9 +95,9 @@ Generating server key and certificate:<br/>
 ```openssl req -newkey rsa:2048 -nodes -keyout SERV.key -x509 -days 365 -out SERV.crt```<br/><br/>
 Generating client key and certificate:<br/>
 ```openssl req -newkey rsa:2048 -nodes -keyout CLIENT.key -x509 -days 365 -out CLIENT.crt```<br/><br/>
-Starting an SSL server on port 4433:br/>
+Starting an SSL server on port 4433:<br/>
 ```openssl s_server -accept 4433 -key SERV.key -cert SERV.crt```<br/><br/>
-Using an SSL client to connect to the SSL server:br/>
+Using an SSL client to connect to the SSL server:<br/>
 ```openssl s_client -connect localhost:4433 -key CLIENT.key -cert CLIENT.crt```<br/><br/>
 Here is an example of a basic TLS client/server communication using OpenSSL:
 ![image](https://user-images.githubusercontent.com/88616338/223783878-956516da-3988-4fb7-9bab-f23551327378.png)
